@@ -1,0 +1,75 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Assignment2WeddingPlanner.ViewModels.UserEnquiryViewModel
+
+@{ ViewData["Title"] = "User Enquiry"; }
+
+@* Form to submit RSVP Response *@
+
+@using (var form = Html.BeginForm("CreateUpdate", "UserEnquiry", FormMethod.Post))
+{
+<div class="container" id="UserEnquiry">
+
+    <br />
+    <br />
+    <br />
+
+    @* The Bride and Groom name plus Wedding Details will eventually change
+        depending on the log in details *@
+
+    <h3> Welcome to Nuptials </h3>
+    <br/>
+    <h4> Fill out the enquiry below or contact us at enquiries@nuptials.com </h4>
+    <br/>
+    <h4> We will get back to you as soon as possible to start planning your dream wedding! </h4>
+    <br/>
+    
+
+    <div class="container" id="EnquiryTable" style="align-content:center">
+
+        <table>
+
+            @Html.HiddenFor(m => m.EditableEnquiry.EnquiryID)
+
+            <tr>
+                <td>Couple Name: </td>
+                <td>@Html.TextBoxFor(m => m.EditableEnquiry.CoupleName)</td>
+
+            </tr>
+
+            <tr>
+                <td>Email Address: </td>
+                <td>@Html.TextBoxFor(m => m.EditableEnquiry.EmailAddress)</td>
+            </tr>
+
+            <tr>
+                <td>Phone Number: </td>
+                <td>@Html.TextBoxFor(m => m.EditableEnquiry.PhoneNumber)</td>
+            </tr>
+
+            <tr>
+                <td>Message: </td>
+                <td>@Html.TextBoxFor(m => m.EditableEnquiry.EnquiryMessage)</td>
+            </tr>
+
+            
+        </table>
+
+        <br />
+
+        <button class="btnSubmitEnquiry" type="submit" style="text-align:center"> <a asp-controller="UserEnquiry" asp-action="CreateUpdate"></a>Submit</button>
+
+
+    </div>
+
+
+</div>}
+
+<br />
+<br />
+
+
